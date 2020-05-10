@@ -3,6 +3,8 @@ React CRUD Implentation:
 - [x] Added Pagination
 - [ ] Redux Implemented
 
+React CRUD available at master branch; With redux is added to withRedux branch
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
