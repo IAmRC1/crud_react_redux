@@ -4,9 +4,10 @@ body {
   font-family: 'Varela Round', sans-serif;
   font-size: 13px;
 }
-button:disabled{
+button:disabled, .disabled{
   cursor: not-allowed;
 }
+
 .delete, .edit{
   padding: 0;
   background-color: #fff;
@@ -121,9 +122,14 @@ border-radius: 50%;
 vertical-align: middle;
 margin-right: 10px;
 }
+.d-flex-between{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .pagination {
-  float: right;
-  margin: 0 0 5px;
+  margin: 0;
 }
 .pagination li a {
   border: none;
@@ -153,9 +159,11 @@ margin-right: 10px;
   font-size: 16px;
   padding-top: 6px
 }
+.page-link:focus{
+  box-shadow: none;
+}
+
 .hint-text {
-  float: left;
-  margin-top: 10px;
   font-size: 13px;
 }
 /* Modal styles */

@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Header = (props) => {
-  console.log('props of header', props)
     return (
         <div className="table-title mb-0">
           <div className="row">

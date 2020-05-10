@@ -1,17 +1,18 @@
-import React, { useState, useEffect  } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-
 
 const initialFormState = { id: null, name: '', email: '', address: '', phone: '' }
 
 const Updateemp = (props) => {
-  console.log('props of updateemp', props)
 
   const [user, setUser] = useState(initialFormState)
+  
+  useEffect(() => {
+    if(props.currentUser){
+      setUser(props.currentUser)
+    }
+  },[props.currentUser]);
 
-  // useEffect(() => {
-  //   setUser(props.currentUser)
-  // }, [props])
 
   const handleInputChange = event => {
     const { name, value } = event.target
@@ -20,20 +21,20 @@ const Updateemp = (props) => {
   
   const handleSubmit = e => {
     e.preventDefault() 
-    // props.updateUser(user.id, user)
-    console.log('update user' )
+    props.editUser(user.id, user)
+    props.toggleUpdate()
   }
   
   return (
     <Modal isOpen={props.updateModalView} toggle={props.toggleUpdate}>
       <ModalHeader>
-        Add Employee
+        Edit Employee
       </ModalHeader>
       <ModalBody>
       <form>
         <div className="form-group">
           <label>Name</label>
-          <input type="text" className="form-control" required name="name" value={user.name} onChange={handleInputChange} />
+          <input type="text" className="form-control" required name="name" value={user.name} onChange={e => handleInputChange(e)} />
         </div>
         <div className="form-group">
           <label>Email</label>
@@ -51,7 +52,7 @@ const Updateemp = (props) => {
       </ModalBody>
       <ModalFooter>
         <Button color="default" onClick={props.toggleUpdate}>Cancel</Button>
-        <Button color="success" className="mr-3" onClick={e => handleSubmit(e)}>Save</Button>
+        <Button color="success" className="mr-3" onClick={e => handleSubmit(e)} disabled={!user.name || !user.email|| !user.address || !user.phone}>Save</Button>
       </ModalFooter>
     </Modal>
   )

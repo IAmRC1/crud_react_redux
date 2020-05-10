@@ -5,7 +5,6 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 const initialFormState = { id: null, name: '', email: '', address: '', phone: '' }
 
 const Addemp = (props) => {
-  console.log('props of addemp', props)
   const [user, setUser] = useState(initialFormState)
 
   const handleInputChange = e => {
